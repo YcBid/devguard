@@ -4,15 +4,15 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "devguard"
-version = "0.1.0"
-description = "A small, local-first scanner for accidentally committed secrets."
+version = "0.2.0"
+description = "A local-first security CLI scanner for detecting accidentally exposed secrets and credentials."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [{ name = "DevGuard contributors" }]
-keywords = ["security", "secrets", "developer-tools", "cli"]
+keywords = ["security", "secrets", "scanner", "developer-tools", "cli", "devsecops"]
 classifiers = [
-  "Development Status :: 3 - Alpha",
+  "Development Status :: 4 - Beta",
   "Environment :: Console",
   "Intended Audience :: Developers",
   "License :: OSI Approved :: MIT License",
@@ -21,8 +21,17 @@ classifiers = [
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Topic :: Security",
+  "Topic :: Software Development :: Quality Assurance",
 ]
 dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/YcBid/devguard"
+Repository = "https://github.com/YcBid/devguard"
+Issues = "https://github.com/YcBid/devguard/issues"
 
 [project.scripts]
 devguard = "devguard.cli:main"
@@ -35,3 +44,4 @@ where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+addopts = "-ra"
